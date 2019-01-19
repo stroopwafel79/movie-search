@@ -29,13 +29,13 @@ def show_homepage():
 
 
 def connect_to_db(app):
-	"""Connect the database to our Flask app"""
+    """Connect the database to our Flask app"""
 
-	# Configure to use our PostgreSQL database
-	app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///test"
-	app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-	db.app = app
-	db.init_app(app)
+    # Configure to use our PostgreSQL database
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///test"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.app = app
+    db.init_app(app)
 
 ######################################################################
 if __name__ == '__main__':
@@ -53,15 +53,15 @@ if __name__ == '__main__':
     app.run(port=5000, host='0.0.0.0')
 
     # As a convenience, if we run this module interactiverly, it will leave
-	# you in a state of being able to work with the database directly.
-	import os
-	from server import app
+    # you in a state of being able to work with the database directly.
+    import os
+    from server import app
 
-	# Connect the Flask app to the database
-	connect_to_db(app)
+    # Connect the Flask app to the database
+    connect_to_db(app)
 
-	# Will print when run interactively
-	print("Connected to DB")
+    # Will print when run interactively
+    print("Connected to DB")
 
-	# Make tables
-	db.create_all()
+    # Make tables
+    db.create_all()
