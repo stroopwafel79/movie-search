@@ -2,16 +2,41 @@
 <html>
 <head>
 	<title>Homepage</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 	<form action="/homepage">
 		<div>
 			<label for="name">Enter a movie title:</label>
-			<input type="text" name="movie">
+			<input type="text" name="movie" id="movie-text-input">
 		</div>
 		<div>
-			<button>Find</button>
+			<button id="movie-find-btn">Find</button>
 		</div>
 	</form>
+	<script type="text/javascript">
+		"use strict";
+
+		// const findButton = document.querySelector("#movie-find-btn");
+		// const findButton = $('#movie-find-btn');
+
+		function alertClick(evt) {
+			alert("Stop clicking me, Asshole!");
+			evt.preventDefault();
+			console.dir(evt);
+		}
+
+		function alertText(evt) {
+			alert('No movie title for you!');
+			evt.preventDefault();
+			console.log(evt);
+		}
+
+		// findButton.addEventListener('click', alertClick);
+		$('#movie-find-btn').on('click', alertClick);
+
+		$('#movie-text-input').on('keypress', alertText);
+
+	</script>
 </body>
 </html>

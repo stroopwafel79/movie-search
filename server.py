@@ -5,10 +5,9 @@ from flask import (Flask, render_template, redirect, request, flash,
                    session, url_for, jsonify)
 from flask_sqlalchemy import SQLAlchemy
 
-import guidebox
 
-guidebox.api_key = "YOUR KEY GOES HERE"
-movies = guidebox.Movie.list()
+
+
 # This is the connection to the PostgreSQL database; we're getting
 # this through the Flask-SQLAlchemy helper library. On this, we can find
 # the "session" object, where we do most of our interactions (committing, etc.)
@@ -30,6 +29,11 @@ def show_homepage():
     """ Show the homepage"""
 
     return render_template("homepage.html")
+
+@app.route("/homepage")
+def back_to_homepage():
+    """ Redirect back to the homepage"""
+    return redirect("/")
 
 
 def connect_to_db(app):
